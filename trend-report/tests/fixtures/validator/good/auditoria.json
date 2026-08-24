@@ -1,0 +1,10 @@
+{
+  "fuentes": [
+    {"fuente": "Wikipedia pageviews", "estado": "OK", "conteo": 27, "articles_unique": 4000},
+    {"fuente": "Google Trends RSS", "estado": "OK", "conteo": 10},
+    {"fuente": "Hacker News", "estado": "OK", "conteo": 60},
+    {"fuente": "YouTube", "estado": "OMITIDA", "conteo": 0}
+  ],
+  "top_trending": [{"nombre": "Deportes", "n_temas": 3}],
+  "top_growth": [{"nombre": "Deportes", "n_temas": 3}]
+}

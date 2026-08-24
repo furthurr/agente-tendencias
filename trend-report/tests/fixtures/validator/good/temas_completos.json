@@ -1,0 +1,5 @@
+[
+  {"titulo": "Tema Uno", "nicho": "Deportes", "valores_actuales": [10, 10], "valores_base": [5, 5], "growth_pct": 100.0},
+  {"titulo": "Tema Dos", "nicho": "Deportes", "valores_actuales": [8, 8], "valores_base": [4, 4], "growth_pct": 100.0},
+  {"titulo": "Tema Tres", "nicho": "Deportes", "valores_actuales": [6, 6], "valores_base": [3, 3], "growth_pct": 100.0}
+]

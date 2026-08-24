@@ -1,0 +1,803 @@
+proyecto:
+  nombre: Agente de Informes Semanales de Tendencias
+  version: 0.1.0
+  geo_default: MX
+  idioma: es
+  user_agent: "AgenteTendencias/0.1 (+https://github.com/tu-usuario/agente-tendencias)"
+
+periodos:
+  semana:
+    etiqueta: Semana
+    dias_actual: 7
+    dias_base: 21
+  mes:
+    etiqueta: Mes
+    dias_actual: 30
+    dias_base: 90
+  anio:
+    etiqueta: Año
+    dias_actual: 365
+    dias_base: 365
+
+http:
+  timeout: 25
+  retries: 2
+  backoff_inicial: 1.0
+  sleep_entre_fuentes: 0.35
+
+fuentes:
+  wikipedia:
+    sleep_segundos: 0.35
+    max_lookup: 800
+    stop_fallos_consecutivos: 6
+    dias_minimos_recomendados: 25
+  youtube:
+    sleep_segundos: 0.38
+    max_sugerencias_por_semilla: 8
+  hackernews:
+    points_minimos: 50
+    max_historias: 60
+  gdelt:
+    sleep_segundos: 2.0
+
+scoring:
+  min_temas_nicho: 3
+  top_nichos: 3
+  top_temas: 5
+  top_miembros_nicho: 8
+  trending:
+    wiki: 0.45
+    rss: 0.25
+    yt: 0.20
+    hn: 0.10
+  growth:
+    crecimiento: 0.65
+    tamano: 0.35
+  tema:
+    trending: 0.60
+    growth: 0.40
+
+nichos:
+  - nombre: IA y Tecnología
+    claves:
+      - inteligencia artificial
+      - inteligencia artificial generativa
+      - ia generativa
+      - chatbot
+      - chatgpt
+      - gemini
+      - claude
+      - copilot
+      - machine learning
+      - aprendizaje automatico
+      - deep learning
+      - red neuronal
+      - algoritmo
+      - robot
+      - robotica
+      - automatizacion
+      - software
+      - hardware
+      - programacion
+      - programador
+      - desarrollador
+      - codigo
+      - python
+      - javascript
+      - linux
+      - android
+      - iphone
+      - smartphone
+      - celular
+      - computadora
+      - laptop
+      - internet
+      - ciberseguridad
+      - tecnologia
+      - innovacion tecnologica
+      - startup tecnologica
+      - nube informatica
+      - videojuego
+    semillas_yt:
+      - inteligencia artificial
+      - noticias de tecnologia
+      - tutorial tecnologia
+
+  - nombre: Gaming y Esports
+    claves:
+      - videojuego
+      - videojuegos
+      - gaming
+      - gamer
+      - esports
+      - e sports
+      - e sport
+      - playstation
+      - xbox
+      - nintendo
+      - steam
+      - epic games
+      - fortnite
+      - minecraft
+      - roblox
+      - fifa
+      - ea sports fc
+      - call of duty
+      - valorant
+      - league of legends
+      - lol esports
+      - pokemon
+      - legend of zelda
+      - super mario
+      - mario bros
+      - mario kart
+      - consola
+      - gameplay
+      - speedrun
+      - streamer
+      - twitch
+      - realidad virtual
+      - realidad aumentada
+      - videojuego movil
+      - lanzamiento videojuego
+      - torneo esports
+    semillas_yt:
+      - noticias gaming
+      - gameplay en español
+      - esports resultados
+
+  - nombre: Deportes
+    claves:
+      - deporte
+      - deportes
+      - futbol
+      - futbolista
+      - futbol mexicano
+      - liga mx
+      - seleccion mexicana
+      - premier league
+      - champions league
+      - la liga futbol
+      - copa mundial
+      - mundial de futbol
+      - baloncesto
+      - basquetbol
+      - nba
+      - beisbol
+      - mlb
+      - liga mexicana de beisbol
+      - boxeo
+      - boxeador
+      - ufc
+      - artes marciales mixtas
+      - lucha libre
+      - wwe
+      - tenis
+      - golf
+      - formula 1
+      - automovilismo deportivo
+      - ciclismo
+      - atletismo
+      - natacion
+      - olimpicos
+      - olimpiadas
+      - medalla
+      - entrenador deportivo
+      - partido
+      - campeonato deportivo
+      - resultado deportivo
+    semillas_yt:
+      - resumen liga mx
+      - highlights deportivos
+      - analisis partido
+
+  - nombre: Finanzas y Cripto
+    claves:
+      - finanzas
+      - finanzas personales
+      - dinero
+      - ahorro
+      - inversion
+      - inversiones
+      - inversor
+      - bolsa de valores
+      - mercado bursatil
+      - acciones
+      - bolsa mexicana
+      - economia
+      - economista
+      - inflacion
+      - tasas de interes
+      - banco central
+      - credito
+      - tarjeta de credito
+      - hipoteca
+      - impuestos
+      - hacienda
+      - afore
+      - pension
+      - seguro
+      - criptomoneda
+      - criptomonedas
+      - cripto
+      - bitcoin
+      - ethereum
+      - blockchain
+      - nft
+      - defi
+      - web3
+      - trading
+      - forex
+      - mercado financiero
+      - finanzas corporativas
+      - emprendedor financiero
+    semillas_yt:
+      - finanzas personales mexico
+      - noticias bitcoin
+      - como invertir
+
+  - nombre: Salud y Fitness
+    claves:
+      - salud
+      - medico
+      - medica
+      - medicina
+      - doctor
+      - doctora
+      - hospital
+      - enfermedad
+      - vacuna
+      - virus
+      - pandemia
+      - cancer
+      - diabetes
+      - cardiologia
+      - neurologia
+      - psicologia clinica
+      - terapia
+      - salud mental
+      - ansiedad
+      - depresion
+      - nutricion
+      - nutricionista
+      - dieta
+      - alimentacion saludable
+      - ejercicio
+      - gimnasio
+      - fitness
+      - musculacion
+      - entrenamiento
+      - entrenador personal
+      - yoga
+      - pilates
+      - maraton
+      - bienestar
+      - longevidad
+      - medicamento
+      - cirugia
+      - salud publica
+      - embarazo
+    semillas_yt:
+      - ejercicios en casa
+      - salud y bienestar
+      - nutricion facil
+
+  - nombre: Entretenimiento y Música
+    claves:
+      - entretenimiento
+      - musica
+      - musical
+      - cantante
+      - cancion
+      - album musical
+      - concierto
+      - festival musical
+      - rapero
+      - rap
+      - regueton
+      - banda musical
+      - compositor
+      - productor musical
+      - actor
+      - actriz
+      - celebridad
+      - famoso
+      - influencer
+      - youtuber
+      - tiktoker
+      - reality show
+      - programa de television
+      - television
+      - podcast
+      - comedia
+      - humor
+      - meme
+      - viral
+      - espectaculo
+      - alfombra roja
+      - premiacion
+      - premio musical
+      - teatro
+      - stand up
+      - celebridades
+    semillas_yt:
+      - musica nueva
+      - noticias de famosos
+      - videos de comedia
+
+  - nombre: Cine y TV
+    claves:
+      - cine
+      - pelicula
+      - peliculas
+      - serie
+      - series
+      - television
+      - tv
+      - netflix
+      - disney plus
+      - hbo max
+      - prime video
+      - streaming
+      - trailer
+      - estreno cinematografico
+      - director de cine
+      - guionista
+      - oscar
+      - emmy
+      - telenovela
+      - anime
+      - manga
+      - documental
+      - ficcion
+      - ciencia ficcion
+      - terror cinematografico
+      - superheroe
+      - marvel
+      - dc comics
+      - star wars
+      - harry potter
+      - critica de cine
+      - taquilla
+      - reparto pelicula
+      - personaje de ficcion
+    semillas_yt:
+      - estrenos de cine
+      - teorias de peliculas
+      - series recomendadas
+
+  - nombre: Comida y Cocina
+    claves:
+      - comida
+      - cocina
+      - cocinero
+      - chef
+      - receta
+      - recetas
+      - gastronomia
+      - restaurante
+      - restaurante mexicano
+      - platillo
+      - cocina mexicana
+      - comida mexicana
+      - postre
+      - reposteria
+      - panaderia
+      - pan
+      - taco
+      - tacos
+      - pizza
+      - hamburguesa
+      - cafe
+      - vino
+      - cerveza
+      - bebida
+      - cocina vegana
+      - cocina vegetariana
+      - comida callejera
+      - degustacion
+      - masterchef
+      - chef internacional
+      - seguridad alimentaria
+      - agricultura alimentaria
+      - ingrediente
+      - gastronomico
+    semillas_yt:
+      - recetas faciles
+      - comida mexicana
+      - cocina paso a paso
+
+  - nombre: Viajes y Turismo
+    claves:
+      - viaje
+      - viajes
+      - turismo
+      - turista
+      - vacaciones
+      - destino turistico
+      - playa
+      - hotel
+      - hospedaje
+      - aeropuerto
+      - vuelo
+      - aerolinea
+      - pasaporte
+      - visa
+      - migracion
+      - mochilero
+      - mochilero
+      - excursion
+      - aventura
+      - camping
+      - crucero
+      - parque nacional
+      - pueblo magico
+      - guia de viaje
+      - viaje internacional
+      - viaje mexico
+      - gastronomia local
+      - patrimonio mundial
+      - museo turistico
+      - frontera
+      - tren turistico
+      - ecoturismo
+      - turismo rural
+      - turismo cultural
+    semillas_yt:
+      - viajes por mexico
+      - destinos baratos
+      - guia de viaje
+
+  - nombre: Ciencia y Educación
+    claves:
+      - ciencia
+      - cientifico
+      - investigacion
+      - universidad
+      - escuela
+      - educacion
+      - estudiante
+      - profesor
+      - profesora
+      - maestro
+      - maestra
+      - aprendizaje
+      - examen
+      - matematicas
+      - fisica
+      - quimica
+      - biologia
+      - astronomia
+      - espacio
+      - nasa
+      - planeta
+      - universo
+      - agujero negro
+      - dinosaurio
+      - paleontologia
+      - geologia
+      - ecologia
+      - medio ambiente
+      - laboratorio
+      - experimento
+      - historia natural
+      - divulgacion cientifica
+      - curso
+      - beca
+      - escuela superior
+      - inteligencia educativa
+      - tecnologia educativa
+    semillas_yt:
+      - ciencia explicada
+      - aprender matematicas
+      - curiosidades cientificas
+
+  - nombre: Negocios y Emprendimiento
+    claves:
+      - negocio
+      - negocios
+      - empresa
+      - empresario
+      - empresaria
+      - emprendimiento
+      - emprendedor
+      - emprendedora
+      - startup
+      - pyme
+      - pequeña empresa
+      - comercio
+      - ventas
+      - marketing
+      - publicidad
+      - marca
+      - liderazgo
+      - gerente
+      - director ejecutivo
+      - ceo
+      - trabajo
+      - empleo
+      - carrera profesional
+      - recursos humanos
+      - productividad
+      - freelance
+      - comercio electronico
+      - ecommerce
+      - tienda online
+      - franquicia
+      - industria
+      - exportacion
+      - importacion
+      - mercado
+      - estrategia empresarial
+      - innovacion empresarial
+      - economia digital
+    semillas_yt:
+      - ideas de negocio
+      - marketing digital
+      - emprendimiento desde casa
+
+  - nombre: Moda y Belleza
+    claves:
+      - moda
+      - modelo
+      - diseñadora
+      - diseñador de moda
+      - ropa
+      - vestido
+      - pasarela
+      - fashion week
+      - belleza
+      - maquillaje
+      - maquillista
+      - cosmetico
+      - cosmetica
+      - skincare
+      - cuidado de la piel
+      - cabello
+      - peluqueria
+      - peinado
+      - manicure
+      - uñas
+      - perfume
+      - joyeria
+      - accesorio
+      - tendencia de moda
+      - estilista
+      - influencer de belleza
+      - dermatologia estetica
+      - cirugia estetica
+      - tatuaje
+      - barberia
+      - lujo
+      - diseño
+      - pasarela de moda
+    semillas_yt:
+      - tendencias de moda
+      - maquillaje paso a paso
+      - cuidado de la piel
+
+  - nombre: Autos y Motores
+    claves:
+      - auto
+      - autos
+      - coche
+      - coches
+      - automovil
+      - automoviles
+      - motor
+      - motores
+      - motocicleta
+      - motocicletas
+      - moto
+      - motos
+      - automovilismo
+      - vehiculo
+      - vehiculos
+      - camioneta
+      - suv
+      - sedan
+      - camion
+      - autobus
+      - formula uno
+      - rally
+      - carreras de autos
+      - electrico
+      - coche electrico
+      - tesla
+      - gasolina
+      - diesel
+      - taller mecanico
+      - mecanico
+      - refacciones
+      - llanta
+      - conduccion
+      - licencia de conducir
+      - transito
+      - transporte
+      - movilidad
+      - movilidad electrica
+    semillas_yt:
+      - novedades de autos
+      - pruebas de manejo
+      - motos nuevas
+
+  - nombre: Clima y Fenómenos Naturales
+    claves:
+      - clima
+      - meteorologia
+      - meteorologo
+      - tiempo atmosferico
+      - pronostico del tiempo
+      - huracan
+      - tormenta tropical
+      - tornado
+      - terremoto
+      - sismo
+      - tsunami
+      - erupcion volcanica
+      - volcan
+      - inundacion
+      - sequia
+      - incendio forestal
+      - ola de calor
+      - frente frio
+      - frio extremo
+      - calor extremo
+      - lluvia
+      - granizo
+      - nieve
+      - cambio climatico
+      - calentamiento global
+      - fenomeno natural
+      - desastre natural
+      - proteccion civil
+      - emergencia climatica
+      - atmosfera
+      - temperatura
+      - viento
+      - satelite meteorologico
+      - el niño climatico
+      - la niña climatica
+    semillas_yt:
+      - clima mexico
+      - noticias del tiempo
+      - fenomenos naturales explicados
+
+  - nombre: Sociedad y Política
+    claves:
+      - sociedad
+      - politica
+      - politico
+      - politica mexicana
+      - gobierno
+      - presidente
+      - presidenta
+      - ministro
+      - secretaria de estado
+      - diputado
+      - senadora
+      - senador
+      - eleccion
+      - elecciones
+      - democracia
+      - partido politico
+      - congreso
+      - parlamento
+      - reforma constitucional
+      - ley
+      - justicia
+      - juez
+      - derechos humanos
+      - protesta
+      - manifestacion
+      - huelga
+      - conflicto social
+      - crimen
+      - violencia
+      - seguridad publica
+      - policia
+      - ejercito
+      - guerra
+      - diplomacia
+      - migracion social
+      - poblacion
+      - comunidad
+      - sociedad civil
+      - noticia nacional
+      - actualidad
+    semillas_yt:
+      - noticias mexico
+      - analisis politico
+      - actualidad internacional
+
+  - nombre: Literatura e Ideas
+    claves:
+      - literatura
+      - escritor
+      - escritora
+      - libro
+      - libros
+      - novela
+      - poesia
+      - poeta
+      - cuento
+      - ensayo
+      - lectura
+      - lector
+      - biblioteca
+      - filosofia
+      - filosofo
+      - pensamiento
+      - idea
+      - psicologia
+      - psicologo
+      - sociologia
+      - antropologia
+      - cultura
+      - arte
+      - artista
+      - pintor
+      - pintura
+      - escultura
+      - fotografia
+      - exposicion de arte
+      - museo de arte
+      - historia
+      - historiador
+      - civilizacion
+      - mitologia
+      - biografia
+      - autobiografia
+      - debate intelectual
+      - pensamiento critico
+    semillas_yt:
+      - recomendaciones de libros
+      - filosofia para todos
+      - historia explicada
+
+  - nombre: Fe y Espiritualidad
+    claves:
+      - fe
+      - espiritualidad
+      - religion
+      - religioso
+      - religiosa
+      - iglesia
+      - cristianismo
+      - cristiano
+      - catolicismo
+      - catolico
+      - protestantismo
+      - evangelico
+      - biblia
+      - dios
+      - jesus
+      - maria religiosa
+      - islam
+      - musulman
+      - coran
+      - judaísmo
+      - judaismo
+      - budismo
+      - budista
+      - hinduismo
+      - hindu
+      - rabino
+      - sacerdote
+      - pastor religioso
+      - papa
+      - peregrinacion
+      - oracion
+      - meditacion espiritual
+      - templo
+      - santo
+      - santuario
+      - teologia
+      - astrologia espiritual
+      - horoscopo
+      - tarot
+      - esoterismo
+    semillas_yt:
+      - reflexion espiritual
+      - meditacion guiada
+      - horoscopo de hoy

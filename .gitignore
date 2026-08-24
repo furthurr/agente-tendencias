@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+.venv/
+venv/
+env/
+ENV/
+
+# Local configuration and operating-system files
+.env
+.env.*
+.DS_Store
+.idea/
+.vscode/
+
+# Generated trend data and reports
+trend-report/data/wiki_cache.json
+trend-report/data/raw/*
+!trend-report/data/raw/.gitkeep
+trend-report/reports/*.md
+!trend-report/reports/.gitkeep
+
+# Test/tool caches
+.coverage
+htmlcov/
