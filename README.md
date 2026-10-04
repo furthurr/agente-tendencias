@@ -177,3 +177,14 @@ El proyecto está preparado para un repositorio público: no contiene secretos,
 los outputs están ignorados y la licencia es MIT. Todavía no se ha inicializado
 ni publicado el repositorio Git. Antes de publicar conviene revisar la
 taxonomía, ejecutar las pruebas y decidir el nombre/URL final del repositorio.
+
+## Autor
+
+<a href="https://furthurr.github.io/" target="_blank" rel="noopener noreferrer">Pedro G. V. @furthurr</a>
+
+- **GitHub:** https://github.com/furthurr
+- **Email:** pedrogvas@gmail.com
+
+## Licencia
+
+MIT
